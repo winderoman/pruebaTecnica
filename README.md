@@ -7,16 +7,32 @@
 ## Instalación
 
 1. **Clonar el Repositorio**
-   git clone https://github.com/winderoman/pruebaTecnica.git
+
+    ```bash
+    git clone https://github.com/winderoman/pruebaTecnica.git
+
+    ```
 
 2. **Instalar dependencias**
-   composer install
+
+    ```bash
+       composer install
+    ```
 
 3. **Configurar el Entorno**
-   cp .env.example .env
+
+    ```bash
+       cp .env.example .env
+    ```
 
 4. **Generar Clave de Aplicación**
-   php artisan key:generate
+
+    ```bash
+       php artisan key:generate
+    ```
 
 5. **Iniciar Servidor**
-   php artisan serve
+
+    ```bash
+       php artisan serve
+    ```
