@@ -29,7 +29,6 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->profile()
-            ->passwordReset()
             ->favicon("https://unbcorp.cl/wp-content/uploads/2023/11/cropped-Logo_prueba_2-removebg-preview-32x32.png")
             ->brandLogo("https://unbcorp.cl/wp-content/uploads/2023/11/cropped-Logo_prueba_2-removebg-preview-32x32.png")
             ->brandLogoHeight('2rem')
