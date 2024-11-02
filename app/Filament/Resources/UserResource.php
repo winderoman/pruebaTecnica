@@ -14,6 +14,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
+
+use function Laravel\Prompts\password;
+
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
@@ -41,14 +44,18 @@ class UserResource extends Resource
 
                         Forms\Components\TextInput::make('name')
                             ->required()
+                            ->string()
+                            ->filled()
                             ->autofocus()
-                            ->maxLength(255),
+                            ->minLength(3)
+                            ->maxLength(15),
                         Forms\Components\TextInput::make('lastname')
                             ->label("Last name")
+                            ->string()
                             ->required()
-                            ->maxLength(255),
-
-
+                            ->filled()
+                            ->minLength(3)
+                            ->maxLength(15),
                     ])
                 ]),
 
@@ -60,7 +67,8 @@ class UserResource extends Resource
                             ->required()
                             ->prefixIcon('heroicon-m-envelope')
                             ->label("Email Address")
-                            ->maxLength(255),
+                            ->minLength(15)
+                            ->maxLength(35),
                         Forms\Components\TextInput::make('phone')
                             ->tel()
                             ->prefixIcon('heroicon-m-phone')
@@ -68,6 +76,7 @@ class UserResource extends Resource
                             ->required()
                             ->telRegex('/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*$/')
                             ->label('Phone number')
+                            ->minLength(8)
                             ->maxLength(15),
                     ])
                 ]),
@@ -78,7 +87,8 @@ class UserResource extends Resource
                             ->password()
                             ->required()
                             ->revealable()
-                            ->maxLength(255),
+                            ->minLength(8)
+                            ->maxLength(20),
                     ])
                 ])
             ]);
